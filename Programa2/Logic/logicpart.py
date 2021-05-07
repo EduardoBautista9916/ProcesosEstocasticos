@@ -1,6 +1,8 @@
 from os import system
 
 def main():
+    
+    """
     print("Ingrese el Número de estados")
     num_estados = val_numI()
     estados = []
@@ -12,7 +14,7 @@ def main():
             print("Ingrese el valor de salida al nodo", j , ":")
             aux.append(val_numF())
         estados.append(aux)
-    system("cls")
+    system("cls")"""
     """estados=[[0.917,0.051,0.011,0.001,0.020],[0.511,0.300,0.056,0.039,0.94],[0.019,0.146,0.427,0.297,0.112],[0.008,0.050,0.295,0.511,0.136],[0,0,0,0,1]]"""
     while(True):
         print("Estado Inicial")
@@ -111,4 +113,3 @@ def imprimir(mat):
             print("{0:0.4f}".format(mat[i][j]), "  ",end="")
         print()
 
-main()

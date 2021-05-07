@@ -15,20 +15,20 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
-        MainWindow.setStyleSheet("background-color: rgb(80, 80, 80);\n"
-                                "color: rgb(255,255,255);\n"
-                                "\n"
-                                "QLineEdit\n"
-                                "{\n"
-                                "    background-color:rgb(150,150,150);\n"
-                                "}")
+        MainWindow.setStyleSheet("background-color: rgb(30, 30, 30);\n"
+"color: rgb(250,250,250)")
+        MainWindow.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.matN=3
         self.tblMatA = QtWidgets.QTableWidget(self.centralwidget)
         self.tblMatA.setGeometry(QtCore.QRect(60, 10, 300, 250))
-        self.tblMatA.setStyleSheet("background-color: rgb(20, 100, 140);")
-        self.tblMatA.setFrameShape(QtWidgets.QFrame.StyledPanel)
+        self.tblMatA.setStyleSheet("background-color: rgb(10,10,10);\n"
+"border-width: 1px;\n"
+"border-style: solid;\n"
+"border-color: rgb(10,40,60);\n"
+"gridline-color:rgb(255,255,255);")
+        self.matN = 3
+        self.tblMatA.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.tblMatA.setFrameShadow(QtWidgets.QFrame.Plain)
         self.tblMatA.setLineWidth(5)
         self.tblMatA.setMidLineWidth(5)
@@ -67,7 +67,11 @@ class Ui_MainWindow(object):
         self.tblMatAn = QtWidgets.QTableWidget(self.centralwidget)
         self.tblMatAn.setEnabled(False)
         self.tblMatAn.setGeometry(QtCore.QRect(480, 10, 300, 250))
-        self.tblMatAn.setStyleSheet("background-color: rgb(20, 100, 140);")
+        self.tblMatAn.setStyleSheet("background-color: rgb(10, 10, 10);\n"
+"border-width: 1px;\n"
+"border-style: solid;\n"
+"border-color: rgb(10,40,60);\n"
+"gridline-color:rgb(255,255,255);")
         self.tblMatAn.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.tblMatAn.setFrameShadow(QtWidgets.QFrame.Plain)
         self.tblMatAn.setLineWidth(5)
@@ -109,12 +113,14 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(16)
         self.btnAdd.setFont(font)
+        self.btnAdd.setStyleSheet("background-color: rgb(30,120,10);")
         self.btnAdd.setObjectName("btnAdd")
         self.btnSubstract = QtWidgets.QPushButton(self.centralwidget)
         self.btnSubstract.setGeometry(QtCore.QRect(370, 50, 30, 30))
         font = QtGui.QFont()
         font.setPointSize(16)
         self.btnSubstract.setFont(font)
+        self.btnSubstract.setStyleSheet("background-color: rgb(30,120,10);")
         self.btnSubstract.setObjectName("btnSubstract")
         self.lblA = QtWidgets.QLabel(self.centralwidget)
         self.lblA.setGeometry(QtCore.QRect(10, 100, 41, 41))
@@ -136,6 +142,38 @@ class Ui_MainWindow(object):
         self.gridLayout.setHorizontalSpacing(50)
         self.gridLayout.setVerticalSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
+        self.lblFinal = QtWidgets.QLabel(self.gridLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.lblFinal.setFont(font)
+        self.lblFinal.setObjectName("lblFinal")
+        self.gridLayout.addWidget(self.lblFinal, 0, 2, 1, 1)
+        self.txtFinal = QtWidgets.QLineEdit(self.gridLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.txtFinal.setFont(font)
+        self.txtFinal.setStyleSheet("background-color: rgb(15, 40, 10);\n"
+"border-width: 1px;\n"
+"border-style: solid;\n"
+"border-color: rgb(10,40,60);")
+        self.txtFinal.setObjectName("txtFinal")
+        self.gridLayout.addWidget(self.txtFinal, 1, 2, 1, 1)
+        self.txtNoSteps = QtWidgets.QLineEdit(self.gridLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.txtNoSteps.setFont(font)
+        self.txtNoSteps.setStyleSheet("background-color: rgb(15, 40, 10);\n"
+"border-width: 1px;\n"
+"border-style: solid;\n"
+"border-color: rgb(10,40,60);")
+        self.txtNoSteps.setObjectName("txtNoSteps")
+        self.gridLayout.addWidget(self.txtNoSteps, 1, 0, 1, 1)
+        self.lblInitial = QtWidgets.QLabel(self.gridLayoutWidget)
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.lblInitial.setFont(font)
+        self.lblInitial.setObjectName("lblInitial")
+        self.gridLayout.addWidget(self.lblInitial, 0, 1, 1, 1)
         self.lblNoSteps = QtWidgets.QLabel(self.gridLayoutWidget)
         font = QtGui.QFont()
         font.setPointSize(12)
@@ -146,36 +184,20 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setPointSize(12)
         self.txtyInitial.setFont(font)
+        self.txtyInitial.setStyleSheet("background-color: rgb(15, 40, 10);\n"
+"border-width: 1px;\n"
+"border-style: solid;\n"
+"border-color: rgb(10,40,60);")
         self.txtyInitial.setObjectName("txtyInitial")
-        self.txtyInitial.setStyleSheet("background-color: rgb(20, 100, 140);")
         self.gridLayout.addWidget(self.txtyInitial, 1, 1, 1, 1)
-        self.txtFinal = QtWidgets.QLineEdit(self.gridLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.txtFinal.setFont(font)
-        self.txtFinal.setObjectName("txtFinal")
-        self.txtFinal.setStyleSheet("background-color: rgb(20, 100, 140);")
-        self.gridLayout.addWidget(self.txtFinal, 1, 2, 1, 1)
-        self.txtNoSteps = QtWidgets.QLineEdit(self.gridLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.txtNoSteps.setFont(font)
-        self.txtNoSteps.setObjectName("txtNoSteps")
-        self.txtNoSteps.setStyleSheet("background-color: rgb(20, 100, 140);\n"
-        "font-color = rgb(255,255,255)")
-        self.gridLayout.addWidget(self.txtNoSteps, 1, 0, 1, 1)
-        self.lblInitial = QtWidgets.QLabel(self.gridLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.lblInitial.setFont(font)
-        self.lblInitial.setObjectName("lblInitial")
-        self.gridLayout.addWidget(self.lblInitial, 0, 1, 1, 1)
-        self.lblFinal = QtWidgets.QLabel(self.gridLayoutWidget)
-        font = QtGui.QFont()
-        font.setPointSize(12)
-        self.lblFinal.setFont(font)
-        self.lblFinal.setObjectName("lblFinal")
-        self.gridLayout.addWidget(self.lblFinal, 0, 2, 1, 1)
+        self.btnStart = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.btnStart.setStyleSheet("background-color: rgb(30,120,10);")
+        self.btnStart.setObjectName("btnStart")
+        self.gridLayout.addWidget(self.btnStart, 0, 3, 1, 1)
+        self.btnContinue = QtWidgets.QPushButton(self.gridLayoutWidget)
+        self.btnContinue.setStyleSheet("background-color: rgb(30,120,10);")
+        self.btnContinue.setObjectName("btnContinue")
+        self.gridLayout.addWidget(self.btnContinue, 1, 3, 1, 1)
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
         self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 340, 781, 251))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
@@ -190,10 +212,13 @@ class Ui_MainWindow(object):
         self.verticalLayout.addWidget(self.lblCalculations)
         self.txtCalculation = QtWidgets.QTextEdit(self.verticalLayoutWidget)
         self.txtCalculation.setEnabled(False)
-        self.txtCalculation.setStyleSheet("background-color: rgb(20, 100, 140);")
         font = QtGui.QFont()
         font.setPointSize(12)
         self.txtCalculation.setFont(font)
+        self.txtCalculation.setStyleSheet("background-color: rgb(15, 40, 10);\n"
+"border-width: 1px;\n"
+"border-style: solid;\n"
+"border-color: rgb(10,40,60);")
         self.txtCalculation.setObjectName("txtCalculation")
         self.verticalLayout.addWidget(self.txtCalculation)
         self.gbDetalles = QtWidgets.QGroupBox(self.centralwidget)
@@ -202,6 +227,7 @@ class Ui_MainWindow(object):
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.gbDetalles)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.rbtnYes = QtWidgets.QRadioButton(self.gbDetalles)
+        self.rbtnYes.setChecked(True)
         self.rbtnYes.setObjectName("rbtnYes")
         self.verticalLayout_2.addWidget(self.rbtnYes)
         self.rbtnNo = QtWidgets.QRadioButton(self.gbDetalles)
@@ -245,10 +271,17 @@ class Ui_MainWindow(object):
         self.btnSubstract.setText(_translate("MainWindow", "-"))
         self.lblA.setText(_translate("MainWindow", "A="))
         self.lblAn.setText(_translate("MainWindow", "A^n="))
-        self.lblNoSteps.setText(_translate("MainWindow", "No. Pasos"))
-        self.lblInitial.setText(_translate("MainWindow", "Nodo Inicial"))
         self.lblFinal.setText(_translate("MainWindow", "Nodo Final"))
-        self.lblCalculations.setText(_translate("MainWindow", "Calculos del Metodo de Primera Ves"))
+        self.lblInitial.setText(_translate("MainWindow", "Nodo Inicial"))
+        self.lblNoSteps.setText(_translate("MainWindow", "No. Pasos"))
+        self.btnStart.setText(_translate("MainWindow", "Start"))
+        self.btnContinue.setText(_translate("MainWindow", "Continue"))
+        self.lblCalculations.setText(_translate("MainWindow", "Calculos del Metodo de Primera Vez"))
+        self.txtCalculation.setHtml(_translate("MainWindow", "<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0//EN\" \"http://www.w3.org/TR/REC-html40/strict.dtd\">\n"
+"<html><head><meta name=\"qrichtext\" content=\"1\" /><style type=\"text/css\">\n"
+"p, li { white-space: pre-wrap; }\n"
+"</style></head><body style=\" font-family:\'MS Shell Dlg 2\'; font-size:12pt; font-weight:400; font-style:normal;\">\n"
+"<p style=\"-qt-paragraph-type:empty; margin-top:0px; margin-bottom:0px; margin-left:0px; margin-right:0px; -qt-block-indent:0; text-indent:0px;\"><br /></p></body></html>"))
         self.gbDetalles.setTitle(_translate("MainWindow", "Detalles"))
         self.rbtnYes.setText(_translate("MainWindow", "Si"))
         self.rbtnNo.setText(_translate("MainWindow", "No"))

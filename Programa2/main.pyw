@@ -1,7 +1,7 @@
 import sys
-import sys
 from PyQt5 import QtWidgets, QtCore
-from interfaz01 import Ui_MainWindow
+from interfaces.interfaz01 import Ui_MainWindow
+from Logic.logicpart import main
 
 class Window_GUI(QtWidgets.QMainWindow):
     def __init__(self):
