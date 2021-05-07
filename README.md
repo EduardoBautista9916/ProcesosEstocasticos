@@ -4,6 +4,8 @@ Repositorio utilizado para alojar todos los porgramas que sean requeridos en la 
 ## Construido con
 
 * [Visual Studio Code] (https://code.visualstudio.com/) - Entorno de desarrollo
+* [GitHub DeskTop] (https://github.com/) - Controlador de Versiones
+* [PyQt] (https://www.riverbankcomputing.com/software/pyqt/download5) - Libreria para manejo de GUI's
 
 ## Autores
 
