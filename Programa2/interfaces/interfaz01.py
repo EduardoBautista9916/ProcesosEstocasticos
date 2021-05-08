@@ -15,18 +15,28 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(800, 600)
+        MainWindow.setMinimumSize(QtCore.QSize(800, 600))
+        MainWindow.setMaximumSize(QtCore.QSize(800, 600))
+        font = QtGui.QFont()
+        font.setFamily("Cooper Black")
+        font.setPointSize(12)
+        MainWindow.setFont(font)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("images/logo.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
+        MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("background-color: rgb(30, 30, 30);\n"
-"color: rgb(250,250,250)")
+        "color: rgb(250,250,250)")
         MainWindow.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.tblMatA = QtWidgets.QTableWidget(self.centralwidget)
         self.tblMatA.setGeometry(QtCore.QRect(60, 10, 300, 250))
         self.tblMatA.setStyleSheet("background-color: rgb(10,10,10);\n"
-"border-width: 1px;\n"
-"border-style: solid;\n"
-"border-color: rgb(10,40,60);\n"
-"gridline-color:rgb(255,255,255);")
+        "border-width: 1px;\n"
+        "border-style: solid;\n"
+        "border-color: rgb(10,40,60);\n"
+        "gridline-color:rgb(255,255,255);")
         self.matN = 3
         self.tblMatA.setFrameShape(QtWidgets.QFrame.NoFrame)
         self.tblMatA.setFrameShadow(QtWidgets.QFrame.Plain)
@@ -45,7 +55,7 @@ class Ui_MainWindow(object):
         self.tblMatA.setRowCount(self.matN)
         self.tblMatA.setColumnCount(self.matN)
         self.tblMatA.setObjectName("tblMatA")
-        item = QtWidgets.QTableWidgetItem()
+        item = QtWidgets.QTableWidgetItem("0")
         self.tblMatA.setVerticalHeaderItem(0, item)
         item = QtWidgets.QTableWidgetItem()
         self.tblMatA.setVerticalHeaderItem(1, item)

@@ -1,21 +1,30 @@
 from os import system
+from PyQt5.QtWidgets import QMessageBox
 
-def main():
-    
+def main(ui):
+    matA=val_numI(ui)
+    matAn=[]
+    mat_pot=[]
+    prim_Vez=[]
+    mat_Ciclo=[]
+    x=val_numIn(ui,ui.txtyInitial.text(),0)
+    y=val_numIn(ui,ui.txtFinal.text(),1)
+    potencia=val_numIn(ui,ui.txtNoSteps.text(),2)
+    if(matA[0]=="ERROR" or x=="ERROR" or y =="ERROR" or potencia=="ERROR"):
+        print("hubo un error al llenar")
+        return
+    if(x<0 or x>ui.matN-1):
+        error(ui,0)
+        return
+    elif(y<0 or y>ui.matN-1):
+        error(ui,1)
+        return
+    elif(potencia<0):
+        error(ui,2)
+        return
+
+
     """
-    print("Ingrese el Número de estados")
-    num_estados = val_numI()
-    estados = []
-    for i in range(0,num_estados):
-        system("cls")
-        aux = []
-        print("Salidas del Nodo", i, "\n------------------------------------------------------------")
-        for j in range(0,num_estados):
-            print("Ingrese el valor de salida al nodo", j , ":")
-            aux.append(val_numF())
-        estados.append(aux)
-    system("cls")"""
-    """estados=[[0.917,0.051,0.011,0.001,0.020],[0.511,0.300,0.056,0.039,0.94],[0.019,0.146,0.427,0.297,0.112],[0.008,0.050,0.295,0.511,0.136],[0,0,0,0,1]]"""
     while(True):
         print("Estado Inicial")
         x=val_numI()
@@ -66,6 +75,7 @@ def main():
         opcion=val_S_N()
         if(opcion=="n"):
             break
+        """
     
     
 
@@ -83,13 +93,61 @@ def mul_mat(matA,matB):
     return matC
 
 
-def val_numI():
+def val_numI(ui):
     try:
-        digit= int(input(">"))
+        matA=[]
+        for i in range(ui.matN):
+            aux=[]
+            for j in range(ui.matN):
+                num=int(ui.tblMatA.item(i,j).text())
+                aux.append(num)
+            matA.append(aux)
+        return matA
     except(ValueError):
-        print("VALOR NO VALIDO")
-        digit=val_num()
-    return digit
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        msgBox.setText("Alguno(s) de los Valores de la Matriz no es Valido")
+        msgBox.setWindowTitle("ERROR")
+        msgBox.setStandardButtons(QMessageBox.Ok )
+        returnValue = msgBox.exec()
+        matA = ["ERROR"]
+        return matA
+
+def val_numIn(ui,val,pos):
+    try:
+        num =int(val)
+        return num
+    except(ValueError):
+        msgBox = QMessageBox()
+        msgBox.setIcon(QMessageBox.Information)
+        if(pos==0):
+            msgBox.setText("El Valor del Nodo Inicial es Invalido")
+        elif(pos==1):
+            msgBox.setText("El Valor del Nodo Final es Invalido")
+        elif(pos==2):
+            msgBox.setText("El Valor de No. de Pasos es Invalido")
+        else:
+            msgBox.setText("Ocurrio Algo Inesperado")
+        msgBox.setWindowTitle("ERROR")
+        msgBox.setStandardButtons(QMessageBox.Ok )
+        returnValue = msgBox.exec()
+        num="ERROR"
+        return num
+
+def error(ui,pos):
+    msgBox = QMessageBox()
+    msgBox.setIcon(QMessageBox.Information)
+    if(pos==0):
+        msgBox.setText("El Valor del Nodo Inicial está Fuera del Rango")
+    elif(pos==1):
+        msgBox.setText("El Valor del Nodo Final está Fuera del Rango")
+    elif(pos==2):
+        msgBox.setText("El Valor de No. de Pasos no Puede ser Negativo")
+    else:
+        msgBox.setText("Ocurrio Algo Inesperado")
+    msgBox.setWindowTitle("ERROR")
+    msgBox.setStandardButtons(QMessageBox.Ok )
+    returnValue = msgBox.exec()
 
 def val_numF():
     try:
