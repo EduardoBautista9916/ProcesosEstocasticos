@@ -221,7 +221,7 @@ class Ui_MainWindow(object):
         self.lblCalculations.setObjectName("lblCalculations")
         self.verticalLayout.addWidget(self.lblCalculations)
         self.txtCalculation = QtWidgets.QTextEdit(self.verticalLayoutWidget)
-        self.txtCalculation.setEnabled(False)
+        self.txtCalculation.setEnabled(True)
         font = QtGui.QFont()
         font.setPointSize(12)
         self.txtCalculation.setFont(font)
