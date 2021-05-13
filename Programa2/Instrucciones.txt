@@ -1,0 +1,5 @@
+Para poder ejecutar el codigo, solamente hay que dar click en el archivo que dice main.pyw
+
+En caso de no poder correr el archivo dejo el enlace al repositorio donde se encuentra el ejecutable del programa
+Enlace del repositorio donde se aloja el programa de Primera vez
+https://github.com/EduardoBautista9916/ProcesosEstocasticos/tree/main/Programa2
